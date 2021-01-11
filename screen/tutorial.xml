@@ -2,7 +2,18 @@
 <screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-2.1.xsd"
         require-authentication="anonymous-all">
-    <subscreens default-item="FindTutorial"/>
+    <always-actions>
+        <set field="searchIndexName" value="mantle"/>
+        <set field="searchLinkSets" value="marble"/>
+        <set field="searchProductDocType" value="MantleProduct"/>
+        <set field="searchPartyDocType" value="MantleParty"/>
+    </always-actions>
+
+    <subscreens default-item="FindTutorial" >
+        <subscreens-item name="QuickSearch" location="component://SimpleScreens/screen/SimpleScreens/QuickSearch.xml" menu-index="1"/>
+        <subscreens-item name="FindTutorial" location="component://tutorial/screen/tutorial/FindTutorial.xml" menu-index="2"/>
+    </subscreens>
+
     <widgets>
         <label type="h1" text="Hello world!"/>
         <render-mode>
